@@ -1,13 +1,12 @@
 #include <iostream>
 #include "public/CLI/CLI11.hpp"
-#include "service/commandService.hpp"
+#include "public/service/commandService.hpp"
 
 
 int main(int argc, char** argv) {
-    CLI::App app{"SBH Version Control"};
 
     CommandService commandService;
-
+    CLI::App app{"SBH Version Control"};
     app.add_subcommand("init", "Initialize a new repository")
         ->callback([&commandService] { commandService.handle_init(); });
 
